@@ -20,24 +20,12 @@ const guess = document.getElementById('guess');
 const random = Math.floor(Math.random() * movies.length);
 console.log(movies[random])
 
-form.addEventListener('submit'), (e) => {
-    e.preventDefault();
-}
+//form.addEventListener('submit'), (e) => {
+    //e.preventDefault();
 
-  // Check for our movie value
-  console.log(movie.value);
 
-function checkIfCorrect(movie) {
-  
-    console.log('Random: ', random);
-    console.log('Guess: ', movie);
-  
-    guess.classList.remove('hide');
-  
-    // Note, a === checks for type but here we are comparing a string and a number so we can just use a == for the check
-    if (movie === random) {
-      guess.innerHTML = 'Hey you got it!';
-    } else {
-      guess.innerHTML = 'Nope, try again lol';
-    }
-  }
+  // Check for movie value
+  //console.log(movie.value);
+
+
+if (guess == movies[random])
