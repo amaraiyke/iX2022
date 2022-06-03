@@ -1,0 +1,23 @@
+for (let i = 1; i <= 10; i++) {
+    console.log("The First 10 Digits of The Fibonacci Sequence: ")
+    console.log(n1);
+    nextTerm = n1 + n2;
+    n1 = n2;
+    n2 = nextTerm;
+}
+
+
+let n1 = 0, n2 = 1, nextTerm;
+
+function printFibonacci10Terms() {
+    for (let i = 1; i <= 10; i++) {
+        console.log("The First 10 Digits of The Fibonacci Sequence: ")
+        console.log(n1);
+        nextTerm = n1 + n2;
+        n1 = n2;
+        n2 = nextTerm;
+    }
+
+}
+
+printFibonacci10Terms();
