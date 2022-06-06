@@ -19,27 +19,36 @@
             <div class="card mt-3 p-5">
               <div class="card-body">
                 <h3 class="card-title mb-3">Badly Explained Movies</h3>
-                <hr />
-                <div class="pb-4"></div>
+                <hr/>
+                <div id="explain" class="pb-4"></div>
                 <hr/>
                 <form id="form">
                   <div class="input-group mb-3">
                     <input
-                      id="movie.name"
+                      id="user.guess"
                       type="text"
                       placeholder="Guess the Movie"
                       class="form-control"
                     />
                   </div>
       
-                  <div id="guess" class="hide pb-3 d-grid gap-2">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                  <div class="hide pb-3 d-grid gap-2">
+                    <button type="submit" class="btn btn-primary" id="submitGuess">Submit</button>
                   </div>
                 </form>
+                <div id="wrong-status-message"  class="hide alert alert-danger p-3" role="alert">
+                  Oh my, that is wrong unfortunately. You can try for a hint though.
+                </div>
+                <div id="correct-status-message"class="hide alert alert-success p-3" role="alert">
+                  Congratulations! You are correct!
+                </div>
+                <div id="guess" ></div>
                 <hr/>
                 <div class="d-grid gap-2">
-                    <button type="button" class="btn btn-secondary">Show Hint</button>
+                    <button type="button" class="btn btn-secondary" id="showHint">Show Hint</button>
+                    <div id="hint" class=" hide p-3"></div>
                 </div>
+                <div id="hint-message" class="hide p-2"></div>
               </div>
         <script src="script.js" async defer></script>
         <script

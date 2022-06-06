@@ -1,3 +1,4 @@
+//array containing movies
 const movies = [
     {title: 'Harry Potter', explanation: 'This movie is about a dude with a stick...', hint: 'It\'s Magic'},
     {title: 'Just Go With It', explanation: 'This movie is about people who go on holiday...', hint: 'Adam, Drew and Jennifer'},
@@ -12,20 +13,57 @@ const movies = [
     {title: 'The Lord Of The Rings', explanation: 'In this movie some small guys go for a walk...', hint: 'You will not vacate past this exact position'}
    ]
    
-
+//Grabs elements in HTML by id
 const form = document.getElementById('form');
-const movie = document.getElementById('movie.name');
-const guess = document.getElementById('guess');
+const userGuess = document.getElementById('user.guess');
+//const randomGuess = document.getElementById('guess');
+const wrongAlert = document.getElementById("wrong-status-message")
+const correctAlert = document.getElementById("correct-status-message")
+const submitGuess = document.getElementById("submitGuess")
+const showHint = document.getElementById("showHint")
+const hintMessage = document.getElementById("hint-message")
+const explainMessage = document.getElementById("explain")
 
-const random = Math.floor(Math.random() * movies.length);
-console.log(movies[random])
+//Random movie from array selector
+const randomMovie = Math.floor(Math.random() * movies.length);
+console.log(movies[randomMovie])
+const {explanation} = movies[randomMovie];
+console.log(explanation)
+explainMessage.textContent = explanation //adds text for explanation to the explain div
+const {hint} = movies[randomMovie];
+console.log(hint)
 
-//form.addEventListener('submit'), (e) => {
-    //e.preventDefault();
+
+//Event listener for Hint Button
+showHint.addEventListener('click',randomHint);
+
+//Event Listener for Submit Button
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  checkGuess(userGuess)
+});
+
+//function to check user's guess
+
+function checkGuess() {
+  const {title} = movies[randomMovie];
+  //console.log(title)
+  const randomGuess = title
+  console.log(randomGuess)
+  if (userGuess.value === randomGuess) {
+    correctAlert.classList.remove('hide');} 
+
+  else {
+    wrongAlert.classList.remove('hide');}
+}
 
 
-  // Check for movie value
-  //console.log(movie.value);
+//Displays hint for random movie
+function randomHint() {
+  const {hint} = movies[randomMovie];
+  console.log(hint)
+  hintMessage.textContent = hint
+  hintMessage.classList.remove('hide');
 
-
-if (guess == movies[random])
+}
