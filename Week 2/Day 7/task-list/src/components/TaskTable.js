@@ -26,8 +26,19 @@ export default function TaskTable(props) {
                         <tr>
                             <th>{task.id}</th>
                             <td>{task.name}</td>
-                            <td>{task.complete}</td>
-                            <td></td>
+                            <td>
+                                <div onClick={(e) => props.onTaskCompleteToggle(task.id)}>
+                                    <i className={ task.complete ? "bi bi-circle-fill" : "bi bi-circle"
+                                    }></i>
+                                </div>
+                            </td>
+
+                            <td>
+                            <i className="bi bi-trash" onClick={() => props.onTaskRemove(task.id)}></i>
+                                {/* <div onClick={() => props.onTaskRemove(task.id)}>
+                                    <i className="bi bi-trash" onClick={() => props.onTaskRemove(task.id)}></i>
+                                </div> */}
+                            </td>
                         </tr>
                     )
                 }   

@@ -23,21 +23,27 @@ export default function App() {
       false,
     )
 
-    tasks.push(task)
-    setTasks(tasks)
+    //tasks.push(task)
+    //setTasks(tasks)
+    setTasks([...tasks, task]);
  
     //add the task to the task state
   }
 
   function onTaskCompleteToggle(taskId) {
     //toggle the completed state
-
+    const taskToToggle = tasks.find((task) => task.id === taskId);
+    taskToToggle.complete = !taskToToggle.complete;
     //update the tasks state
+    setTasks(tasks.map((task) => {
+      return task.id === taskId ? taskToToggle : task;
+    }));
+  
   }
 
   function onTaskRemove(taskId) {
     //filter the tasks to keep which don't have the id passed in
-
+    setTasks(tasks.filter((task) => task.id !== taskId));
     //update the task state with the filtered list
   }
   
@@ -54,7 +60,8 @@ export default function App() {
 
         <TaskInput onTaskCreate={onTaskCreate}/>
 
-        <TaskTable tasks={tasks}/>
+        <TaskTable tasks={tasks}  onTaskCompleteToggle={onTaskCompleteToggle}
+        onTaskRemove={onTaskRemove}/>
       </div>
     </div>
   
