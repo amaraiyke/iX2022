@@ -8,7 +8,7 @@ export default function TaskTable(props) {
             <table className="table">
             <thead>
                 <tr>
-                    <th>#</th>
+                    
                     <th>Name</th>
                     <th>Completed</th>
                     <th>Actions</th>
@@ -24,7 +24,7 @@ export default function TaskTable(props) {
                 {
                     props.tasks.map((task) => 
                         <tr>
-                            <th>{task.id}</th>
+                            
                             <td>{task.name}</td>
                             <td>
                                 <div onClick={(e) => props.onTaskCompleteToggle(task.id)}>
@@ -35,9 +35,6 @@ export default function TaskTable(props) {
 
                             <td>
                             <i className="bi bi-trash" onClick={() => props.onTaskRemove(task.id)}></i>
-                                {/* <div onClick={() => props.onTaskRemove(task.id)}>
-                                    <i className="bi bi-trash" onClick={() => props.onTaskRemove(task.id)}></i>
-                                </div> */}
                             </td>
                         </tr>
                     )
